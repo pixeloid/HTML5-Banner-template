@@ -110,6 +110,7 @@ figure {
 }
 
 hr {
+  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -182,6 +183,8 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="search"] {
   -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
 
@@ -388,10 +391,14 @@ dd {
 }
 
 html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 *, *:after, *:before {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
   box-sizing: inherit;
 }
 
@@ -431,9 +438,8 @@ body {
   z-index: 10;
   min-height: 100%;
   outline: 1px solid transparent;
-  -webkit-transform: translateZ(0) translateX(0) rotateY(0deg);
-          transform: translateZ(0) translateX(0) rotateY(0deg);
-  background: #7f8083 url("../img/bkgd.png") repeat top center;
+  transform: translateZ(0) translateX(0) rotateY(0deg);
+  background: #7f8083;
 }
 
 .content-container {
@@ -494,12 +500,6 @@ img {
   vertical-align: middle;
 }
 
-::-moz-selection, ::-moz-selection {
-  background: #000;
-  color: #fff;
-  text-shadow: none;
-}
-
 ::-moz-selection, ::selection {
   background: #000;
   color: #fff;
@@ -555,8 +555,7 @@ a:hover {
 
 .perspective.modalview {
   position: fixed;
-  -webkit-perspective: 1500px;
-          perspective: 1500px;
+  perspective: 1500px;
 }
 
 .modalview .container {
@@ -565,8 +564,7 @@ a:hover {
   width: 100%;
   height: 100%;
   cursor: pointer;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .modalview .wrapper {
@@ -579,29 +577,19 @@ a:hover {
 }
 
 .effect-moveleft .container {
-  -webkit-transition: -webkit-transform 0.4s;
-  transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
-  transition: transform 0.4s, -webkit-transform 0.4s;
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 }
 
-.effect-moveleft .container:after {
-  background: #ffffff;
+.effect-moveleft .container::after {
   background: rgba(255, 255, 255, 0.6);
 }
 
 .effect-moveleft .navigation a,
 .effect-moveleft .navigation a {
   opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  -webkit-transform: translateX(100px) translateZ(-1000px);
-          transform: translateX(100px) translateZ(-1000px);
-  -webkit-transition: opacity 0.4s, -webkit-transform 0.4s;
-  transition: opacity 0.4s, -webkit-transform 0.4s;
+  transform: translateX(100px) translateZ(-1000px);
   transition: transform 0.4s, opacity 0.4s;
-  transition: transform 0.4s, opacity 0.4s, -webkit-transform 0.4s;
 }
 
 .effect-moveleft .navigation a:hover {
@@ -633,8 +621,7 @@ a:hover {
   font-weight: 600;
   padding: 15px 10px;
   color: #fff;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
 .navigation a:hover {
@@ -647,25 +634,17 @@ a:hover {
 
 .navigation a {
   opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  -webkit-transform: translateX(100px) translateZ(-1000px);
-          transform: translateX(100px) translateZ(-1000px);
-  -webkit-transition: opacity 0.25s, background-color 0.25s ease-out, -webkit-transform 0.25s;
-  transition: opacity 0.25s, background-color 0.25s ease-out, -webkit-transform 0.25s;
+  transform: translateX(100px) translateZ(-1000px);
   transition: transform 0.25s, opacity 0.25s, background-color 0.25s ease-out;
-  transition: transform 0.25s, opacity 0.25s, background-color 0.25s ease-out, -webkit-transform 0.25s;
 }
 
 .animate .container {
-  -webkit-transform: translateX(-50%) rotateY(45deg) translateZ(-50px);
-          transform: translateX(-50%) rotateY(45deg) translateZ(-50px);
+  transform: translateX(-50%) rotateY(45deg) translateZ(-50px);
 }
 
-.animate .container:after {
+.animate .container::after {
   opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   height: 101%;
-  -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
 
@@ -675,83 +654,64 @@ a:hover {
 
 .animate .navigation a {
   opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  -webkit-transform: translateX(0) translateZ(0);
-          transform: translateX(0) translateZ(0);
-  -webkit-transition: opacity 0.4s, background-color 0.4s ease-out, -webkit-transform 0.4s;
-  transition: opacity 0.4s, background-color 0.4s ease-out, -webkit-transform 0.4s;
+  transform: translateX(0) translateZ(0);
   transition: transform 0.4s, opacity 0.4s, background-color 0.4s ease-out;
-  transition: transform 0.4s, opacity 0.4s, background-color 0.4s ease-out, -webkit-transform 0.4s;
 }
 
 .animate .navigation a:nth-child(2) {
-  -webkit-transition-delay: 0.04s;
-          transition-delay: 0.04s;
+  transition-delay: 0.04s;
 }
 
 .animate .navigation a:nth-child(3) {
-  -webkit-transition-delay: 0.08s;
-          transition-delay: 0.08s;
+  transition-delay: 0.08s;
 }
 
 .animate .navigation a:nth-child(4) {
-  -webkit-transition-delay: 0.12s;
-          transition-delay: 0.12s;
+  transition-delay: 0.12s;
 }
 
 .animate .navigation a:nth-child(5) {
-  -webkit-transition-delay: 0.16s;
-          transition-delay: 0.16s;
+  transition-delay: 0.16s;
 }
 
 .animate .navigation a:nth-child(6) {
-  -webkit-transition-delay: 0.2s;
-          transition-delay: 0.2s;
+  transition-delay: 0.2s;
 }
 
 .animate .navigation a:nth-child(7) {
-  -webkit-transition-delay: 0.24s;
-          transition-delay: 0.24s;
+  transition-delay: 0.24s;
 }
 
 .animate .navigation a:nth-child(8) {
-  -webkit-transition-delay: 0.28s;
-          transition-delay: 0.28s;
+  transition-delay: 0.28s;
 }
 
 .animate .navigation a:nth-child(9) {
-  -webkit-transition-delay: 0.32s;
-          transition-delay: 0.32s;
+  transition-delay: 0.32s;
 }
 
 .animate .navigation a:nth-child(10) {
-  -webkit-transition-delay: 0.36s;
-          transition-delay: 0.36s;
+  transition-delay: 0.36s;
 }
 
 .animate .navigation a:nth-child(11) {
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
+  transition-delay: 0.4s;
 }
 
 .animate .navigation a:nth-child(12) {
-  -webkit-transition-delay: 0.44s;
-          transition-delay: 0.44s;
+  transition-delay: 0.44s;
 }
 
 .animate .navigation a:nth-child(13) {
-  -webkit-transition-delay: 0.48s;
-          transition-delay: 0.48s;
+  transition-delay: 0.48s;
 }
 
 .animate .navigation a:nth-child(14) {
-  -webkit-transition-delay: 0.52s;
-          transition-delay: 0.52s;
+  transition-delay: 0.52s;
 }
 
 .animate .navigation a:nth-child(15) {
-  -webkit-transition-delay: 0.56s;
-          transition-delay: 0.56s;
+  transition-delay: 0.56s;
 }
 
 .tabs {
@@ -782,7 +742,6 @@ a:hover {
 .tabs [type="radio"]:checked + span {
   color: #000;
   background: #eee;
-  background: -webkit-linear-gradient(top, #eee 0%, #aaa 100%);
   background: linear-gradient(to bottom, #eee 0%, #aaa 100%);
 }
 
@@ -795,11 +754,7 @@ a:hover {
   color: #ddd;
   font-size: 16px;
   line-height: 3em;
-  background: #000000;
   background: rgba(0, 0, 0, 0.25);
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  -webkit-transition: background 0.25s ease-in-out;
   transition: background 0.25s ease-in-out;
 }
 
@@ -822,8 +777,7 @@ a:hover {
   right: 15px;
   width: 32px;
   height: 16px;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -837,10 +791,8 @@ a:hover {
   width: 100%;
   position: absolute;
   top: 50%;
-  -webkit-transition: .3s;
   transition: .3s;
-  -webkit-transition-delay: .1s;
-          transition-delay: .1s;
+  transition-delay: .1s;
 }
 
 .tabs .hamburger:after, .tabs .hamburger:before {
@@ -852,16 +804,13 @@ a:hover {
   width: 100%;
   left: 0;
   right: 0;
-  -webkit-transition: 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition: 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  -webkit-transform-origin: left top;
-          transform-origin: left top;
+  transform-origin: left top;
 }
 
 .tabs .hamburger:after {
   top: 100%;
-  -webkit-transform-origin: left bottom;
-          transform-origin: left bottom;
+  transform-origin: left bottom;
 }
 
 .banner-container {
@@ -890,15 +839,13 @@ a:hover {
   width: 50%;
   background: #3c3c3c;
   box-shadow: 0 15px 10px #3c3c3c;
-  -webkit-transform: rotate(-3deg);
-          transform: rotate(-3deg);
+  transform: rotate(-3deg);
 }
 
 .banner-container:after {
   left: auto;
   right: 10px;
-  -webkit-transform: rotate(3deg);
-          transform: rotate(3deg);
+  transform: rotate(3deg);
 }
 
 .in-review .banner-container {
@@ -936,16 +883,12 @@ html.touch .banner {
   height: 48px;
   border: none;
   opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  background: #000000 url("../img/ico-zoom.svg") no-repeat center center;
   background: rgba(0, 0, 0, 0.5) url("../img/ico-zoom.svg") no-repeat center center;
-  -webkit-transition: opacity 0.35s ease-out;
   transition: opacity 0.35s ease-out;
 }
 
 .overflow.active {
   opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 
 .file-meta {
@@ -989,7 +932,6 @@ html.touch .banner {
 
 .btn-reload-banner:active {
   background-color: #b7b7b7;
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.1), transparent);
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), transparent);
   box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.2);
 }
